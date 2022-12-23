@@ -24,6 +24,10 @@ Products Light Mode    |  Products Dark Mode
 - [x] Memory Management
 - [x] Light and Dark Mode
 
+#Resources
+MVVM Keynotes: https://raw.githubusercontent.com/YogeshPateliOS/MVVM-Products-List-API/main/MVVM.key
+Youtube Video: 
+
 ## Say Hi on Social Media:
 - Linkedin: https://www.linkedin.com/in/yogeshpatelios
 - Instagram: https://www.instagram.com/codewithyogesh
