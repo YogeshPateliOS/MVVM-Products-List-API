@@ -24,10 +24,21 @@ Products Light Mode    |  Products Dark Mode
 - [x] Memory Management
 - [x] Light and Dark Mode
 
-#Resources
-MVVM Keynotes: https://raw.githubusercontent.com/YogeshPateliOS/MVVM-Products-List-API/main/MVVM.key
-Youtube Video: 
+## Resources
+- MVVM Keynotes: https://raw.githubusercontent.com/YogeshPateliOS/MVVM-Products-List-API/main/MVVM.key
+- Youtube Video: https://youtu.be/fMO03NUjdj8
 
 ## Say Hi on Social Media:
 - Linkedin: https://www.linkedin.com/in/yogeshpatelios
 - Instagram: https://www.instagram.com/codewithyogesh
+
+## My Applications:
+
+- BMI Weight Loss Calculator: https://apps.apple.com/us/app/bmi-weight-loss-calculator/id6444039190
+- My Music - Play & Share: https://apps.apple.com/us/app/my-music-play-share/id1559774882
+
+### YOUTUBE:
+If you enjoyed this project and found it useful, please share and recommend it so others can find it 💚💚💚💚💚💚 !!!!
+https://youtube.com/yogeshpatelios - Please Like, Subscribe and share if it found useful for you 🤟
+
+### Enjoy!!! 😀
