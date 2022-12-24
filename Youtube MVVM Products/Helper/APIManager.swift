@@ -16,7 +16,8 @@ enum DataError: Error {
     case invalidData
     case network(Error?)
 }
-
+// Like to banta hai bhaio
+// Please like the video - Please, request, mentioned not - daya 😂
 typealias Handler = (Result<[Product], DataError>) -> Void
 
 final class APIManager {
@@ -26,6 +27,7 @@ final class APIManager {
 
     func fetchProducts(completion: @escaping Handler) {
         guard let url = URL(string: Constant.API.productURL) else {
+            completion(.failure(.invalidURL)) // I forgot to mention this in the video
             return
         }
         // Background task
