@@ -1,4 +1,4 @@
-# MVVM (Model View ViewModel) + Data Binding + Singleton
+# MVVM (Model View ViewModel) + Data Binding + Singleton + Generic API Calls
 
 In this video we learn about the Model View ViewModel (MVVM) Design Pattern.
 We start by understanding how each component connects with themselves, then we implement an example project (Products API) using the MVVM pattern.
@@ -14,7 +14,7 @@ Products Light Mode    |  Products Dark Mode
 - [x] MVVM architecture
 - [x] Data Binding
 - [x] Singleton Design Pattern
-- [x] URLSession - Networking API
+- [x] URLSession - Generic Api calls - Networking API
 - [x] Decodable Protocol with JSONDecoder
 - [x] Downloading Image - Kingfisher Library
 - [x] Swift Package Manager - SPM
