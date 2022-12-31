@@ -21,6 +21,7 @@
 		9070E2812955F1E200552177 /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9070E27F2955F1E200552177 /* ProductCell.xib */; };
 		9070E2842955F76200552177 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 9070E2832955F76200552177 /* Kingfisher */; };
 		9070E2862955F78400552177 /* UIImageView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9070E2852955F78400552177 /* UIImageView + Extension.swift */; };
+		9070E2B02959041600552177 /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9070E2AF2959041600552177 /* EndPointType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		9070E27E2955F1E200552177 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		9070E27F2955F1E200552177 /* ProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
 		9070E2852955F78400552177 /* UIImageView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extension.swift"; sourceTree = "<group>"; };
+		9070E2AF2959041600552177 /* EndPointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				9070E26F2955E54500552177 /* Application */,
 				9070E26D2955E53F00552177 /* Constant */,
 				9070E26E2955E54200552177 /* Extensions */,
+				9070E2AE2959040100552177 /* Utility */,
 				9070E26C2955E53C00552177 /* Helper */,
 				9070E26B2955E53900552177 /* Screens */,
 				9070E26A2955E53600552177 /* Storyboard */,
@@ -186,6 +189,14 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		9070E2AE2959040100552177 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				9070E2AF2959041600552177 /* EndPointType.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -272,6 +283,7 @@
 				9070E2582955E52500552177 /* SceneDelegate.swift in Sources */,
 				9070E2802955F1E200552177 /* ProductCell.swift in Sources */,
 				9070E27B2955ED1200552177 /* ProductListViewController.swift in Sources */,
+				9070E2B02959041600552177 /* EndPointType.swift in Sources */,
 				9070E2752955E63100552177 /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
