@@ -5,7 +5,7 @@
 //  Created by Yogesh Patel on 23/12/22.
 //
 
-import UIKit
+import Foundation
 
 // Singleton Design Pattern
 // final - inheritance nahi hoga theek hai final ho gya
@@ -27,7 +27,7 @@ final class APIManager {
     static let shared = APIManager()
     private init() {}
 
-    func request<T: Decodable>(
+    func request<T: Codable>(
         modelType: T.Type,
         type: EndPointType,
         completion: @escaping Handler<T>
@@ -36,8 +36,18 @@ final class APIManager {
             completion(.failure(.invalidURL)) // I forgot to mention this in the video
             return
         }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = type.method.rawValue
+
+        if let parameters = type.body {
+            request.httpBody = try? JSONEncoder().encode(parameters)
+        }
+
+        request.allHTTPHeaderFields = type.headers
+
         // Background task
-        URLSession.shared.dataTask(with: url) { data, response, error in
+        URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data, error == nil else {
                 completion(.failure(.invalidData))
                 return
@@ -58,6 +68,14 @@ final class APIManager {
 
         }.resume()
     }
+
+
+    static var commonHeaders: [String: String] {
+        return [
+            "Content-Type": "application/json"
+        ]
+    }
+
 
 
     /*

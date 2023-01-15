@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		90610871297463C40040D9F0 /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90610870297463C40040D9F0 /* AddProductViewController.swift */; };
+		9061087329746B650040D9F0 /* AddProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9061087229746B650040D9F0 /* AddProduct.swift */; };
+		9061087529746B8F0040D9F0 /* ProductEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9061087429746B8F0040D9F0 /* ProductEndPoint.swift */; };
 		9070E2562955E52500552177 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9070E2552955E52500552177 /* AppDelegate.swift */; };
 		9070E2582955E52500552177 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9070E2572955E52500552177 /* SceneDelegate.swift */; };
 		9070E25D2955E52500552177 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9070E25B2955E52500552177 /* Main.storyboard */; };
@@ -25,6 +28,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		90610870297463C40040D9F0 /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
+		9061087229746B650040D9F0 /* AddProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProduct.swift; sourceTree = "<group>"; };
+		9061087429746B8F0040D9F0 /* ProductEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductEndPoint.swift; sourceTree = "<group>"; };
 		9070E2522955E52500552177 /* Youtube MVVM Products.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Youtube MVVM Products.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9070E2552955E52500552177 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9070E2572955E52500552177 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -177,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				9070E2742955E63100552177 /* Product.swift */,
+				9061087229746B650040D9F0 /* AddProduct.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -185,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				9070E27A2955ED1200552177 /* ProductListViewController.swift */,
+				90610870297463C40040D9F0 /* AddProductViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -193,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				9070E2AF2959041600552177 /* EndPointType.swift */,
+				9061087429746B8F0040D9F0 /* ProductEndPoint.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -275,10 +284,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90610871297463C40040D9F0 /* AddProductViewController.swift in Sources */,
 				9070E2862955F78400552177 /* UIImageView + Extension.swift in Sources */,
+				9061087529746B8F0040D9F0 /* ProductEndPoint.swift in Sources */,
 				9070E27D2955ED9000552177 /* ProductViewModel.swift in Sources */,
 				9070E2772955E6C300552177 /* APIManager.swift in Sources */,
 				9070E2562955E52500552177 /* AppDelegate.swift in Sources */,
+				9061087329746B650040D9F0 /* AddProduct.swift in Sources */,
 				9070E2792955E98800552177 /* Constant.swift in Sources */,
 				9070E2582955E52500552177 /* SceneDelegate.swift in Sources */,
 				9070E2802955F1E200552177 /* ProductCell.swift in Sources */,
