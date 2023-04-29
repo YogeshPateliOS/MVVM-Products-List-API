@@ -1,4 +1,4 @@
-# MVVM (Model View ViewModel) + Data Binding + Singleton + Generic API Calls
+# MVVM (Model View ViewModel) + Data Binding + Singleton + Generic API Calls + SOLID Principle
 
 In this video we learn about the Model View ViewModel (MVVM) Design Pattern.
 We start by understanding how each component connects with themselves, then we implement an example project (Products API) using the MVVM pattern.
