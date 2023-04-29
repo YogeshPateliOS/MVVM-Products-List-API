@@ -15,22 +15,30 @@ enum DataError: Error {
     case invalidURL
     case invalidData
     case network(Error?)
+    case decoding(Error?)
 }
 // Like to banta hai bhaio
 // Please like the video - Please, request, mentioned not - daya 😂
 // typealias Handler = (Result<[Product], DataError>) -> Void
 
-typealias Handler<T> = (Result<T, DataError>) -> Void
+typealias ResultHandler<T> = (Result<T, DataError>) -> Void
 
 final class APIManager {
 
     static let shared = APIManager()
-    private init() {}
+    private let networkHandler: NetworkHandler
+    private let responseHandler: ResponseHandler
+
+    init(networkHandler: NetworkHandler = NetworkHandler(),
+         responseHandler: ResponseHandler = ResponseHandler()) {
+        self.networkHandler = networkHandler
+        self.responseHandler = responseHandler
+    }
 
     func request<T: Codable>(
         modelType: T.Type,
         type: EndPointType,
-        completion: @escaping Handler<T>
+        completion: @escaping ResultHandler<T>
     ) {
         guard let url = type.url else {
             completion(.failure(.invalidURL)) // I forgot to mention this in the video
@@ -46,27 +54,25 @@ final class APIManager {
 
         request.allHTTPHeaderFields = type.headers
 
-        // Background task
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data, error == nil else {
-                completion(.failure(.invalidData))
-                return
+        // Network Request - URL TO DATA
+        networkHandler.requestDataAPI(url: request) { result in
+            switch result {
+            case .success(let data):
+                // Json parsing - Decoder - DATA TO MODEL
+                self.responseHandler.parseResonseDecode(
+                    data: data,
+                    modelType: modelType) { response in
+                        switch response {
+                        case .success(let mainResponse):
+                            completion(.success(mainResponse)) // Final
+                        case .failure(let error):
+                            completion(.failure(error))
+                        }
+                    }
+            case .failure(let error):
+                completion(.failure(error))
             }
-
-            guard let response = response as? HTTPURLResponse,
-                  200 ... 299 ~= response.statusCode else {
-                completion(.failure(.invalidResponse))
-                return
-            }
-            // JSONDecoder() - Data ka Model(Array) mai convert karega
-            do {
-                let products = try JSONDecoder().decode(modelType, from: data)
-                completion(.success(products))
-            }catch {
-                completion(.failure(.network(error)))
-            }
-
-        }.resume()
+        }
     }
 
 
@@ -76,57 +82,49 @@ final class APIManager {
         ]
     }
 
+}
 
 
-    /*
-    func fetchProducts(completion: @escaping Handler) {
-        guard let url = URL(string: Constant.API.productURL) else {
-            completion(.failure(.invalidURL)) // I forgot to mention this in the video
-            return
-        }
-        // Background task
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data, error == nil else {
-                completion(.failure(.invalidData))
-                return
-            }
+// Like banta hai guys
 
+class NetworkHandler {
+
+    func requestDataAPI(
+        url: URLRequest,
+        completionHandler: @escaping (Result<Data, DataError>) -> Void
+    ) {
+        let session = URLSession.shared.dataTask(with: url) { data, response, error in
             guard let response = response as? HTTPURLResponse,
                   200 ... 299 ~= response.statusCode else {
-                completion(.failure(.invalidResponse))
+                completionHandler(.failure(.invalidResponse))
                 return
             }
-            // JSONDecoder() - Data ka Model(Array) mai convert karega
-            do {
-                let products = try JSONDecoder().decode([Product].self, from: data)
-                completion(.success(products))
-            }catch {
-                completion(.failure(.network(error)))
+
+            guard let data, error == nil else {
+                completionHandler(.failure(.invalidData))
+                return
             }
 
-        }.resume()
-        print("Ended")
-    }
-    */
-}
-
-/*
-class A: APIManager {
-
-    override func temp() {
-        <#code#>
-    }
-
-    func configuration() {
-        let manager = APIManager()
-        manager.temp()
-
-        // APIManager.temp()
-        APIManager.shared.temp()
+            completionHandler(.success(data))
+        }
+        session.resume()
     }
 
 }
-*/
 
-// singleton - singleton class ka object create hoga outside of the class
-// Singleton - singleton class ka object create nahi hoga outside of the class
+class ResponseHandler {
+
+    func parseResonseDecode<T: Decodable>(
+        data: Data,
+        modelType: T.Type,
+        completionHandler: ResultHandler<T>
+    ) {
+        do {
+            let userResponse = try JSONDecoder().decode(modelType, from: data)
+            completionHandler(.success(userResponse))
+        }catch {
+            completionHandler(.failure(.decoding(error)))
+        }
+    }
+
+}
